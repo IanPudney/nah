@@ -3,11 +3,12 @@ using System.Collections;
 
 public class powerUp : Difference{
 	public GameObject powerUpAffector;
-    public AudioSource pickup;
+    public AudioClip pickup;
+    private AudioSource source;
 
 	// Use this for initialization
 	void Start () {
-	
+        source = GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -16,7 +17,7 @@ public class powerUp : Difference{
 	}
 	
 	void OnPlayerHit(ControllerColliderHit col){
-        pickup.Play();
+        source.PlayOneShot(pickup);
 		GameObject affector = GameObject.Instantiate (powerUpAffector);
 		affector.transform.parent = col.controller.gameObject.transform;
 		affector.transform.localPosition = Vector3.zero;
