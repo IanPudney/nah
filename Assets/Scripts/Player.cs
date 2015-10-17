@@ -10,6 +10,7 @@ public class Player : Difference {
 	float legAngle = 40f;
 	private Vector3 moveDirection = Vector3.zero;
 	private Vector3 previousPosition = Vector3.zero;
+    private Vector3 previousGroundedPosition = Vector3.zero;
 
 	string horizontalAxis;
 	string verticalAxis;
@@ -48,7 +49,8 @@ public class Player : Difference {
 
 		if (controller.isGrounded) {
 			moveDirection = new Vector3(Input.GetAxis(horizontalAxis), 0, Input.GetAxis(verticalAxis));
-			moveDirection *= speed;
+            moveDirection *= speed;
+            previousGroundedPosition = transform.position;
 			if (Input.GetButton(jumpAxis))
 				moveDirection.y += jumpSpeed;
 		} else {
@@ -112,4 +114,9 @@ public class Player : Difference {
 		}
 		return null;
 	}
+
+    public void FallingDeath()
+    {
+        transform.position = previousGroundedPosition;
+    }
 }
