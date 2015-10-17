@@ -3,13 +3,13 @@ using System.Collections;
 
 public class powerUp : Difference{
 	public GameObject powerUpAffector;
-    public AudioClip pickup;
-    private AudioSource source;
+    public AudioClip clip;
+    public GameObject tempSoundObject;
 
 	// Use this for initialization
 	void Start () {
-        source = GetComponent<AudioSource>();
-	}
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -17,10 +17,14 @@ public class powerUp : Difference{
 	}
 	
 	void OnPlayerHit(ControllerColliderHit col){
-        source.PlayOneShot(pickup);
-		GameObject affector = GameObject.Instantiate (powerUpAffector);
+        GameObject tempSound = Instantiate(tempSoundObject);
+        AudioSource temp = tempSound.AddComponent<AudioSource>();
+        temp.clip = clip;
+        temp.Play();
+
+        GameObject affector = GameObject.Instantiate (powerUpAffector);
 		affector.transform.parent = col.controller.gameObject.transform;
 		affector.transform.localPosition = Vector3.zero;
-		Destroy (gameObject);
+		Destroy (this.gameObject);
 	}
 }
