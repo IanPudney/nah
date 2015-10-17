@@ -124,7 +124,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 421640}
   - 95: {fileID: 9523796}
-  - 64: {fileID: 6499248}
   m_Layer: 0
   m_Name: SchoolBus
   m_TagString: Untagged
@@ -159,6 +158,7 @@ GameObject:
   - 4: {fileID: 476640}
   - 33: {fileID: 3309652}
   - 23: {fileID: 2358330}
+  - 64: {fileID: 6406026}
   m_Layer: 0
   m_Name: pCube7
   m_TagString: Untagged
@@ -185,7 +185,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 168842}
   m_LocalRotation: {x: 0, y: .707106829, z: 0, w: .707106709}
-  m_LocalPosition: {x: -7.73360014, y: 7.48000002, z: 6.5}
+  m_LocalPosition: {x: -13.5155373, y: -1.703125, z: 28.0585632}
   m_LocalScale: {x: 61.8113937, y: 61.8113976, z: 61.8113976}
   m_Children:
   - {fileID: 476640}
@@ -451,18 +451,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 107918}
   m_Mesh: {fileID: 4300000, guid: f6e89427735dccd41b82cd98f490bad5, type: 3}
---- !u!64 &6499248
+--- !u!64 &6406026
 MeshCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 168842}
+  m_GameObject: {fileID: 189756}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Convex: 0
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: 4300000, guid: 91da8acfe63d2a744ab240d456e67fb7, type: 3}
 --- !u!95 &9523796
 Animator:
   serializedVersion: 3
