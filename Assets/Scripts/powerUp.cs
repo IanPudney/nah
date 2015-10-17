@@ -14,11 +14,11 @@ public class powerUp : Difference{
 	void Update () {
 		// gameObject.transform.position += new Vector3 (1, 0, 0) * Time.deltaTime;
 	}
-
-	void OnCollisionEnter(Collision col){
-		GameObject.Instantiate (powerUpAffector);
-		powerUpAffector.transform.parent = col.gameObject.transform;
-		powerUpAffector.transform.localPosition = Vector3.zero;
+	
+	void OnPlayerHit(ControllerColliderHit col){
+		GameObject affector = GameObject.Instantiate (powerUpAffector);
+		affector.transform.parent = col.controller.gameObject.transform;
+		affector.transform.localPosition = Vector3.zero;
 		Destroy (gameObject);
 	}
 }
