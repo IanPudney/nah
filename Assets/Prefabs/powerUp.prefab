@@ -13,6 +13,7 @@ GameObject:
   - 23: {fileID: 2359294}
   - 114: {fileID: 11490564}
   - 82: {fileID: 8257400}
+  - 114: {fileID: 11418222}
   m_Layer: 0
   m_Name: powerUp
   m_TagString: Untagged
@@ -133,6 +134,18 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!114 &11418222
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 124066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c13b2f1cc9efd542933782cf130afac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 25
 --- !u!114 &11490564
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -182,6 +195,10 @@ Prefab:
       propertyPath: pickup
       value: 
       objectReference: {fileID: 8257400}
+    - target: {fileID: 0}
+      propertyPath: rotationSpeed
+      value: 25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 124066}
