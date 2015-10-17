@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class powerUp : MonoBehaviour {
+public class powerUp : Difference{
+	public GameObject powerUpAffector;
 
 	// Use this for initialization
 	void Start () {
@@ -13,15 +14,11 @@ public class powerUp : MonoBehaviour {
 	void Update () {
 		// gameObject.transform.position += new Vector3 (1, 0, 0) * Time.deltaTime;
 	}
-	public Transform explosionPrefab;
-	void OnCollisionEnter(Collision col){
-		ContactPoint contact = col.contacts [0];
-		Quaternion rot = Quaternion.FromToRotation (vector3.up, contact.normal);
-		Vector3 pos = contact.point;
-		Instantiate (explosionPrefab, pos, rot);
-		Destroy (gameObject);
-			//foreach (ContactPoint contact in col.contacts) {
-			//Debug.DrawRay (contact.point, contact.normal, Color.blue);
 
+	void OnCollisionEnter(Collision col){
+		GameObject.Instantiate (powerUpAffector);
+		powerUpAffector.transform.parent = col.gameObject.transform;
+		powerUpAffector.transform.localPosition = Vector3.zero;
+		Destroy (gameObject);
 	}
 }
