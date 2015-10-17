@@ -30,7 +30,7 @@ public class Button : MonoBehaviour {
 		if(pressTrack == 0) {
 			pressTrack = 2;
 			Debug.Log ("Button Pressed");
-			startPosition = slider.transform.localPosition;
+			startPosition = slider.	transform.localPosition;
 			slider.transform.localPosition -= new Vector3(0, 0.1f, 0);
 			target.gameObject.SendMessage("ButtonPressed", this);
 		}
