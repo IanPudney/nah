@@ -28,6 +28,8 @@ public class Player : Difference {
     private AudioSource[] audioSources;
     bool stepPlayed = false;
 
+    Quaternion controlRotation = Quaternion.identity;
+
     /* LIMITS */
     public bool leftLimit, rightLimit, upLimit, downLimit, jumpLimit = false;
     public bool constantJump, weakJump = false;
@@ -152,5 +154,9 @@ public class Player : Difference {
     public void FallingDeath()
     {
         transform.position = previousGroundedPosition;
+    }
+
+    public void RotateControls(float angle) {
+        controlRotation *= Quaternion.AngleAxis(angle, Vector3.up);
     }
 }
