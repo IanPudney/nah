@@ -2,7 +2,6 @@
 using System.Collections;
 
 public class CameraManager : Difference {
-
 	// Use this for initialization
 	void Start () {
 		if(isPlayer1) {
@@ -14,6 +13,6 @@ public class CameraManager : Difference {
 	
 	// Update is called once per frame
 	void Update () {
-	
+
 	}
 }
