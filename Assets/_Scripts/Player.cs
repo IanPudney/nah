@@ -28,6 +28,11 @@ public class Player : Difference {
     private AudioSource[] audioSources;
     bool stepPlayed = false;
 
+    /* LIMITS */
+    public bool leftLimit, rightLimit, upLimit, downLimit, jumpLimit = false;
+    public bool constantJump, weakJump = false;
+    public bool speedUp = false;
+
 	// Use this for initialization
 	void Start () {
 		if(isPlayer1) {
@@ -62,6 +67,11 @@ public class Player : Difference {
 
 		if (controller.isGrounded) {
 			moveDirection = new Vector3(Input.GetAxis(horizontalAxis), 0, Input.GetAxis(verticalAxis));
+            //LIMIT MOVEMENTS IF TRUE
+            if (leftLimit & moveDirection.x < 0) { moveDirection.x = 0; }
+            if (rightLimit & moveDirection.x > 0) { moveDirection.x = 0; }
+            if (upLimit & moveDirection.y > 0) { moveDirection.y = 0; }
+            if (downLimit & moveDirection.y < 0) { moveDirection.y = 0; }
             moveDirection *= speed;
             //Only play run sound when input is down
             if (Input.GetAxis(horizontalAxis) > 0 || Input.GetAxis(verticalAxis) > 0) {

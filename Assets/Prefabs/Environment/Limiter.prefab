@@ -527,9 +527,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayer1: 1
-  powerUpAffector: {fileID: 198768, guid: 532945232d12dbc4da52e1ebad833323, type: 2}
   clip: {fileID: 8300000, guid: b733394f960953849b59de44f65f756f, type: 3}
   tempSoundObject: {fileID: 126190, guid: 0470a88fecb23d14dbfa4e162089b696, type: 2}
+  debuffChoice: 0
+  debuff:
+  - {fileID: 139864, guid: a430d583bcfc8914ca5780410b1db4be, type: 2}
 --- !u!135 &13569738
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -549,6 +551,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: debuff.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -617,6 +623,10 @@ Prefab:
       propertyPath: tempSoundObject
       value: 
       objectReference: {fileID: 126190, guid: 0470a88fecb23d14dbfa4e162089b696, type: 2}
+    - target: {fileID: 0}
+      propertyPath: isPlayer1
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 174626}
