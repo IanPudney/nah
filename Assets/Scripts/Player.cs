@@ -38,4 +38,8 @@ public class Player : Difference {
 		moveDirection.y -= gravity * Time.deltaTime;
 		controller.Move(moveDirection * Time.deltaTime);
 	}
+
+	void OnControllerColliderHit(ControllerColliderHit hit){
+		hit.gameObject.SendMessage("OnPlayerHit", hit, SendMessageOptions.DontRequireReceiver);
+	}
 }
