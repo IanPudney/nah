@@ -3,10 +3,10 @@ using System.Collections;
 
 public class powerUp : Difference{
 	public GameObject powerUpAffector;
+    public AudioSource pickup;
 
 	// Use this for initialization
 	void Start () {
-
 	
 	}
 	
@@ -16,6 +16,7 @@ public class powerUp : Difference{
 	}
 	
 	void OnPlayerHit(ControllerColliderHit col){
+        pickup.Play();
 		GameObject affector = GameObject.Instantiate (powerUpAffector);
 		affector.transform.parent = col.controller.gameObject.transform;
 		affector.transform.localPosition = Vector3.zero;
