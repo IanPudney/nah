@@ -22,21 +22,6 @@ public class CameraManager : Difference {
 		velocity = Vector3.zero;
 	}
 
-	//vars that handle Camera movement
-		
-/*	private float speed = 2.0f;
-	private float zoomSpeed = 2.0f;
-	
-	public float minX = -360.0f;
-	public float maxX = 360.0f;
-	
-	public float minY = -45.0f;
-	public float maxY = 45.0f;
-	
-	public float sensX = 100.0f;
-	public float sensY = 100.0f;*/
-	
-	//float rotationY = 0.0f;
 	public float speed = 55.0f;
 	private float rotationX = 0.0f;
 	private Quaternion qTo = Quaternion.identity;
@@ -54,13 +39,13 @@ public class CameraManager : Difference {
 		if (Input.GetAxis (rotationAxis) > 0.01) {
 			if(!rotating) {
 				offsetFromPlayer = Quaternion.AngleAxis(90f, Vector3.up) * offsetFromPlayer;
-				//transform.localRotation = Quaternion.AngleAxis(90f, Vector3.up) * transform.localRotation;
+				player.GetComponent<Player>().RotateControls(90f);
 			}
 			rotating = true;
 		} else if (Input.GetAxis (rotationAxis) < -0.01) {
 			if(!rotating) {
 				offsetFromPlayer = Quaternion.AngleAxis(-90f, Vector3.up) * offsetFromPlayer;
-				//transform.localRotation = Quaternion.AngleAxis(-90f, Vector3.up) * transform.localRotation; 
+				player.GetComponent<Player>().RotateControls(-90f);
 			}
 			rotating = true;
 			//rotationX -= 90.0f;

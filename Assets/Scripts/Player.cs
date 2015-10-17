@@ -28,6 +28,8 @@ public class Player : Difference {
     private AudioSource[] audioSources;
     bool stepPlayed = false;
 
+	Quaternion controlRotation = Quaternion.identity;
+
 	// Use this for initialization
 	void Start () {
 		if(isPlayer1) {
@@ -61,7 +63,7 @@ public class Player : Difference {
 		moveDirection.z = (transform.position.z - doublePreviousPosition.z) / Time.deltaTime;
 
 		if (controller.isGrounded) {
-			moveDirection = new Vector3(Input.GetAxis(horizontalAxis), 0, Input.GetAxis(verticalAxis));
+			moveDirection = controlRotation * new Vector3(Input.GetAxis(horizontalAxis), 0, Input.GetAxis(verticalAxis));
             moveDirection *= speed;
             //Only play run sound when input is down
             if (Input.GetAxis(horizontalAxis) > 0 || Input.GetAxis(verticalAxis) > 0) {
@@ -78,7 +80,7 @@ public class Player : Difference {
                 moveDirection.y += jumpSpeed;
             }
 		} else {
-			Vector3 newMoveDirection = new Vector3(Input.GetAxis(horizontalAxis), 0, Input.GetAxis(verticalAxis));
+			Vector3 newMoveDirection = controlRotation * new Vector3(Input.GetAxis(horizontalAxis), 0, Input.GetAxis(verticalAxis));
 			newMoveDirection.y = 0;
 			newMoveDirection *= airSpeed;
 			moveDirection += newMoveDirection;
@@ -141,4 +143,8 @@ public class Player : Difference {
     {
         transform.position = previousGroundedPosition;
     }
+
+	public void RotateControls(float angle) {
+		controlRotation *= Quaternion.AngleAxis(angle, Vector3.up);
+	}
 }
