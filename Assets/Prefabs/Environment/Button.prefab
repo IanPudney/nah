@@ -45,6 +45,7 @@ GameObject:
   - 4: {fileID: 482908}
   - 95: {fileID: 9585982}
   - 114: {fileID: 11491246}
+  - 65: {fileID: 6529906}
   m_Layer: 0
   m_Name: Button
   m_TagString: Untagged
@@ -83,7 +84,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 189882}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.48200035, y: 6.70499992, z: 10.1280003}
+  m_LocalPosition: {x: 23.9599991, y: 6.67999983, z: -26.6800003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 453158}
@@ -152,6 +153,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 116188}
   m_Mesh: {fileID: 4300000, guid: 64dbfbc2614446a4ebf428733eadef8d, type: 3}
+--- !u!65 &6529906
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 189882}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: .600000024, y: .100000001, z: .600000024}
+  m_Center: {x: 0, y: -.100000001, z: 0}
 --- !u!95 &9506106
 Animator:
   serializedVersion: 3
