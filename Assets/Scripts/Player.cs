@@ -10,6 +10,7 @@ public class Player : Difference {
 	float legAngle = 40f;
 	private Vector3 moveDirection = Vector3.zero;
 	private Vector3 previousPosition = Vector3.zero;
+	private Vector3 doublePreviousPosition = Vector3.zero;
     private Vector3 previousGroundedPosition = Vector3.zero;
 
 	string horizontalAxis;
@@ -38,6 +39,7 @@ public class Player : Difference {
 			verticalAxis = "Vertical2";
 			jumpAxis = "Jump2";
 		}
+		doublePreviousPosition = transform.position;
 		previousPosition = transform.position;
 		model = GetChild ("PlayerModel").gameObject;
 		leftLeg = GetChild (model, "LeftLeg").gameObject;
@@ -55,8 +57,8 @@ public class Player : Difference {
 	void Update () {
 		CharacterController controller = GetComponent<CharacterController>();
 
-		moveDirection.x = (transform.position.x - previousPosition.x) / Time.deltaTime;
-		moveDirection.z = (transform.position.z - previousPosition.z) / Time.deltaTime;
+		moveDirection.x = (transform.position.x - doublePreviousPosition.x) / Time.deltaTime;
+		moveDirection.z = (transform.position.z - doublePreviousPosition.z) / Time.deltaTime;
 
 		if (controller.isGrounded) {
 			moveDirection = new Vector3(Input.GetAxis(horizontalAxis), 0, Input.GetAxis(verticalAxis));
@@ -88,8 +90,8 @@ public class Player : Difference {
 			if(moveDirection.z < -speed) moveDirection.z = -speed;
 		}
 		moveDirection.y -= gravity * Time.deltaTime;
-		if((previousPosition - transform.position).magnitude > 0.01f) {
-			Quaternion newRotation = Quaternion.LookRotation(previousPosition - transform.position);
+		if((doublePreviousPosition - transform.position).magnitude > 0.01f) {
+			Quaternion newRotation = Quaternion.LookRotation(doublePreviousPosition - transform.position);
 			//clamp the rotation to a maximum angle
 			transform.rotation = Quaternion.RotateTowards(transform.rotation, newRotation, 720f * Time.deltaTime);
 		}
@@ -99,15 +101,15 @@ public class Player : Difference {
 			legDirection = true;
 		}
 		if(legDirection) {
-			legPosition += (previousPosition - transform.position).magnitude * legSpeed * speed;
+			legPosition += (doublePreviousPosition - transform.position).magnitude * legSpeed * speed;
 			leftLeg.transform.localRotation = Quaternion.Euler (legAngle * -legPosition, 0, 0);
 			rightLeg.transform.localRotation = Quaternion.Euler (legAngle * legPosition, 0, 0);
 		} else {
-			legPosition -= (previousPosition - transform.position).magnitude * legSpeed;
+			legPosition -= (doublePreviousPosition - transform.position).magnitude * legSpeed;
 			leftLeg.transform.localRotation = Quaternion.Euler (legAngle * -legPosition, 0, 0);
 			rightLeg.transform.localRotation = Quaternion.Euler (legAngle * legPosition, 0, 0);
 		}
-
+		doublePreviousPosition = previousPosition;
 		previousPosition = transform.position;
 		controller.Move(moveDirection * Time.deltaTime);
 
