@@ -12000,7 +12000,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11421988, guid: ae660276c86c3794594faeafdf9b4368, type: 2}
       propertyPath: airSpeed
-      value: .140000001
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ae660276c86c3794594faeafdf9b4368, type: 2}
