@@ -79,7 +79,7 @@ public class Player : Difference {
             }
 		} else {
 			Vector3 newMoveDirection = new Vector3(Input.GetAxis(horizontalAxis), 0, Input.GetAxis(verticalAxis));
-			Debug.Log (newMoveDirection);
+//			Debug.Log (newMoveDirection);
 			newMoveDirection.y = 0;
 			newMoveDirection *= airSpeed;
 			moveDirection += newMoveDirection;
