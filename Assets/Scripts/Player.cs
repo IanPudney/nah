@@ -2,11 +2,11 @@
 using System.Collections;
 
 public class Player : Difference {
-	public float speed = 6.0F;
+	public float speed = 3.0F;
 	public float jumpSpeed = 8.0F;
 	public float gravity = 20.0F;
 	public float airSpeed = 0.5F;
-	float legSpeed = 10F;
+	public float legSpeed = 6F;
 	float legAngle = 40f;
 	private Vector3 moveDirection = Vector3.zero;
 	private Vector3 previousPosition = Vector3.zero;
@@ -75,7 +75,7 @@ public class Player : Difference {
 			legDirection = true;
 		}
 		if(legDirection) {
-			legPosition += (previousPosition - transform.position).magnitude * legSpeed;
+			legPosition += (previousPosition - transform.position).magnitude * legSpeed * speed;
 			leftLeg.transform.localRotation = Quaternion.Euler (legAngle * -legPosition, 0, 0);
 			rightLeg.transform.localRotation = Quaternion.Euler (legAngle * legPosition, 0, 0);
 		} else {

@@ -400,10 +400,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayer1: 1
-  speed: 6
+  speed: 4
   jumpSpeed: 7
   gravity: 20
   airSpeed: .0700000003
+  legSpeed: 1
 --- !u!114 &11486336
 MonoBehaviour:
   m_ObjectHideFlags: 1

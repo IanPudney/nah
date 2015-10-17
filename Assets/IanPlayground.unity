@@ -2470,7 +2470,7 @@ Prefab:
       value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 11421988, guid: ae660276c86c3794594faeafdf9b4368, type: 2}
-      propertyPath: speed
+      propertyPath: legSpeed
       value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
