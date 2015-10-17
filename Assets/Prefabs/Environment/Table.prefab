@@ -25,6 +25,7 @@ GameObject:
   - 4: {fileID: 426766}
   - 33: {fileID: 3359828}
   - 23: {fileID: 2350166}
+  - 64: {fileID: 6400638}
   m_Layer: 0
   m_Name: pCube7
   m_TagString: Untagged
@@ -354,7 +355,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 144830}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 58, y: 19.3999996, z: -15}
+  m_LocalPosition: {x: 61.3564987, y: -1.703125, z: -40.8409882}
   m_LocalScale: {x: 50, y: 50, z: 50}
   m_Children:
   - {fileID: 429306}
@@ -396,6 +397,18 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 131646}
+  m_Mesh: {fileID: 4300000, guid: a4bc5354b38513846a024f195ffc4ff8, type: 3}
+--- !u!64 &6400638
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 131646}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
   m_Mesh: {fileID: 4300000, guid: a4bc5354b38513846a024f195ffc4ff8, type: 3}
 --- !u!95 &9519818
 Animator:
