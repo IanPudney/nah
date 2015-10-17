@@ -78,7 +78,6 @@ GameObject:
   - 135: {fileID: 13569738}
   - 114: {fileID: 11452016}
   - 114: {fileID: 11487396}
-  - 82: {fileID: 8223336}
   m_Layer: 0
   m_Name: Limiter
   m_TagString: Untagged
@@ -487,76 +486,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 178978}
   m_Mesh: {fileID: 4300000, guid: 50433b867524da34c83dad7588c06315, type: 3}
---- !u!82 &8223336
-AudioSource:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 174626}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b733394f960953849b59de44f65f756f, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 0
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
 --- !u!95 &9541574
 Animator:
   serializedVersion: 3
@@ -600,6 +529,7 @@ MonoBehaviour:
   isPlayer1: 1
   powerUpAffector: {fileID: 198768, guid: 532945232d12dbc4da52e1ebad833323, type: 2}
   clip: {fileID: 8300000, guid: b733394f960953849b59de44f65f756f, type: 3}
+  tempSoundObject: {fileID: 126190, guid: 0470a88fecb23d14dbfa4e162089b696, type: 2}
 --- !u!135 &13569738
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -683,6 +613,10 @@ Prefab:
       propertyPath: MinDistance
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: tempSoundObject
+      value: 
+      objectReference: {fileID: 126190, guid: 0470a88fecb23d14dbfa4e162089b696, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 174626}
