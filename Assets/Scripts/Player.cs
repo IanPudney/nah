@@ -23,6 +23,10 @@ public class Player : Difference {
 	float legPosition = 0;
 	bool legDirection = true;
 
+    public AudioClip[] audioClips;
+    private AudioSource[] audioSources;
+    bool stepPlayed = false;
+
 	// Use this for initialization
 	void Start () {
 		if(isPlayer1) {
@@ -38,6 +42,13 @@ public class Player : Difference {
 		model = GetChild ("PlayerModel").gameObject;
 		leftLeg = GetChild (model, "LeftLeg").gameObject;
 		rightLeg = GetChild (model, "RightLeg").gameObject;
+        //Setting up sounds
+        //0 = Run, 1 = Jump
+        audioSources = new AudioSource[audioClips.Length];
+        for (int i = 0; i < audioClips.Length; i++) {
+            audioSources[i] = this.gameObject.AddComponent<AudioSource>();
+            audioSources[i].clip = audioClips[i];
+        }
 	}
 
 	// Update is called once per frame
@@ -50,9 +61,20 @@ public class Player : Difference {
 		if (controller.isGrounded) {
 			moveDirection = new Vector3(Input.GetAxis(horizontalAxis), 0, Input.GetAxis(verticalAxis));
             moveDirection *= speed;
+            //Only play run sound when input is down
+            if (Input.GetAxis(horizontalAxis) > 0 || Input.GetAxis(verticalAxis) > 0) {
+                if (!stepPlayed && legDirection == false) {
+                    audioSources[0].Play();
+                    stepPlayed = true;
+                } 
+                else if (legDirection == true)
+                    stepPlayed = false;
+            }
             previousGroundedPosition = transform.position;
-			if (Input.GetButton(jumpAxis))
-				moveDirection.y += jumpSpeed;
+            if (Input.GetButton(jumpAxis)) {
+                audioSources[1].Play();
+                moveDirection.y += jumpSpeed;
+            }
 		} else {
 			Vector3 newMoveDirection = new Vector3(Input.GetAxis(horizontalAxis), 0, Input.GetAxis(verticalAxis));
 			Debug.Log (newMoveDirection);
