@@ -1,51 +1,43 @@
 fileFormatVersion: 2
-guid: 6124a50e1dd895549a901f1ac8c0cc88
-timeCreated: 1445055113
+guid: 91da8acfe63d2a744ab240d456e67fb7
+timeCreated: 1445101488
 licenseType: Free
 ModelImporter:
   serializedVersion: 18
   fileIDToRecycleName:
-    100000: pCube1
-    100002: pCube2
-    100004: pCube3
-    100006: pCube4
-    100008: pCube5
-    100010: transform1
-    100012: transform2
-    100014: transform3
-    100016: transform4
-    100018: //RootNode
-    100020: WoodenChair:bottom
-    100022: WoodenChair:pCube1
-    100024: WoodenChair:pCube2
-    100026: WoodenChair:pCube3
-    100028: WoodenChair:pCube4
-    100030: WoodenChair:transform1
-    100032: WoodenChair:transform2
-    100034: WoodenChair:transform3
-    100036: WoodenChair:transform4
-    400000: pCube1
-    400002: pCube2
-    400004: pCube3
-    400006: pCube4
-    400008: pCube5
-    400010: transform1
-    400012: transform2
-    400014: transform3
-    400016: transform4
-    400018: //RootNode
-    400020: WoodenChair:bottom
-    400022: WoodenChair:pCube1
-    400024: WoodenChair:pCube2
-    400026: WoodenChair:pCube3
-    400028: WoodenChair:pCube4
-    400030: WoodenChair:transform1
-    400032: WoodenChair:transform2
-    400034: WoodenChair:transform3
-    400036: WoodenChair:transform4
-    2300000: pCube5
-    3300000: pCube5
-    4300000: pCube5
+    100000: bottom
+    100002: pCube1
+    100004: pCube2
+    100006: pCube3
+    100008: pCube4
+    100010: pCube5
+    100012: pCube6
+    100014: pCube7
+    100016: //RootNode
+    100018: transform1
+    100020: transform2
+    100022: transform3
+    100024: transform4
+    100026: transform5
+    100028: transform6
+    400000: bottom
+    400002: pCube1
+    400004: pCube2
+    400006: pCube3
+    400008: pCube4
+    400010: pCube5
+    400012: pCube6
+    400014: pCube7
+    400016: //RootNode
+    400018: transform1
+    400020: transform2
+    400022: transform3
+    400024: transform4
+    400026: transform5
+    400028: transform6
+    2300000: pCube7
+    3300000: pCube7
+    4300000: pCube7
     9500000: //RootNode
   materials:
     importMaterials: 1

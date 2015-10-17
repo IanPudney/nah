@@ -1,32 +1,48 @@
 fileFormatVersion: 2
-guid: 05fd8985b3f28d149b315c98c34a86b5
-timeCreated: 1445055120
+guid: 74f3e7be75e50a54bb19ded2b81f17cd
+timeCreated: 1445101925
 licenseType: Free
 ModelImporter:
   serializedVersion: 18
   fileIDToRecycleName:
-    100000: bottom
-    100002: pCube1
-    100004: pCube2
-    100006: pCube3
-    100008: pCube4
-    100010: pCube5
-    100012: transform1
-    100014: transform2
-    100016: transform3
-    100018: transform4
-    100020: //RootNode
-    400000: bottom
-    400002: pCube1
-    400004: pCube2
-    400006: pCube3
-    400008: pCube4
-    400010: pCube5
-    400012: transform1
-    400014: transform2
-    400016: transform3
-    400018: transform4
-    400020: //RootNode
+    100000: pCube1
+    100002: pCube2
+    100004: pCube3
+    100006: pCube4
+    100008: pCube5
+    100010: transform1
+    100012: transform2
+    100014: transform3
+    100016: transform4
+    100018: //RootNode
+    100020: WoodenChair:bottom
+    100022: WoodenChair:pCube1
+    100024: WoodenChair:pCube2
+    100026: WoodenChair:pCube3
+    100028: WoodenChair:pCube4
+    100030: WoodenChair:transform1
+    100032: WoodenChair:transform2
+    100034: WoodenChair:transform3
+    100036: WoodenChair:transform4
+    400000: pCube1
+    400002: pCube2
+    400004: pCube3
+    400006: pCube4
+    400008: pCube5
+    400010: transform1
+    400012: transform2
+    400014: transform3
+    400016: transform4
+    400018: //RootNode
+    400020: WoodenChair:bottom
+    400022: WoodenChair:pCube1
+    400024: WoodenChair:pCube2
+    400026: WoodenChair:pCube3
+    400028: WoodenChair:pCube4
+    400030: WoodenChair:transform1
+    400032: WoodenChair:transform2
+    400034: WoodenChair:transform3
+    400036: WoodenChair:transform4
     2300000: pCube5
     3300000: pCube5
     4300000: pCube5
