@@ -79,7 +79,6 @@ public class Player : Difference {
             }
 		} else {
 			Vector3 newMoveDirection = new Vector3(Input.GetAxis(horizontalAxis), 0, Input.GetAxis(verticalAxis));
-//			Debug.Log (newMoveDirection);
 			newMoveDirection.y = 0;
 			newMoveDirection *= airSpeed;
 			moveDirection += newMoveDirection;
@@ -131,7 +130,6 @@ public class Player : Difference {
 	Transform GetChild(GameObject from, string name) {
 		Debug.Log (from);
 		foreach (Transform child in from.transform){
-			Debug.Log (child);
 			if (child.name == name){
 				return child;
 			}
