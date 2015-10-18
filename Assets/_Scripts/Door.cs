@@ -17,13 +17,13 @@ public class Door : MonoBehaviour {
 		Quaternion from;
 		Quaternion to;
 		if(open) {
-			from = rotator.rotation;
-			to = Quaternion.identity;
+            from = rotator.localRotation;
+            to = Quaternion.AngleAxis(-openPosition, Vector3.up); //TODO: make Vector3.up be this object's relative up
 		} else {
-			from = rotator.rotation;
-			to = Quaternion.AngleAxis (openPosition, Vector3.up); //TODO: make Vector3.up be this object's relative up
-		}
-		rotator.rotation = Quaternion.RotateTowards(from, to, openPosition * Time.deltaTime / openPeriod);
+            from = rotator.localRotation;
+            to = Quaternion.identity;
+        }
+		rotator.localRotation = Quaternion.RotateTowards(from, to, -openPosition * Time.deltaTime / openPeriod);
 	}
 
 	void ButtonPressed(Button unused) {

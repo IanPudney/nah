@@ -15,9 +15,11 @@ public class EnableOn : MonoBehaviour {
 
 	void ButtonPressed(Button button) {
 		toEnable.enabled = true;
+        Debug.Log("Elevator Enabled");
 	}
 
 	void ButtonReleased(Button button) {
 		toEnable.enabled = false;
+        Debug.Log("Elevator Disabled");
 	}
 }

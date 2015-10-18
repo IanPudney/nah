@@ -33,7 +33,6 @@ public class CameraManager : Difference {
 		velocity += toMove * Time.deltaTime;
 		velocity *= 0.5f;
 		transform.position += velocity;
-		Debug.Log (rotating);
 
 		//Handles camera rotation
 		if (Input.GetAxis (rotationAxis) > 0.01) {
