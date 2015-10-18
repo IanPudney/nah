@@ -21,25 +21,25 @@ public class DirectionalLimit : MonoBehaviour {
         }
         analogRef = enemy.transform.FindChild("AnalogUI").GetComponent<AnalogUI>();
 
-        indicatorText.text = "";
+        //indicatorText.text = "";
         if (directionalLimit == Direction.Left) {
             enemy.leftLimit = true;
-            indicatorText.text += "You cannot move Left\n";
+            //indicatorText.text += "You cannot move Left\n";
             analogRef.set_renderer(AnalogUI.Directions.Left, true);
         }
         if (directionalLimit == Direction.Right) {
             enemy.rightLimit = true;
-            indicatorText.text = "You cannot move Right\n";
+            //indicatorText.text = "You cannot move Right\n";
             analogRef.set_renderer(AnalogUI.Directions.Right, true);
         }
         if (directionalLimit == Direction.Down) {
             enemy.downLimit = true;
-            indicatorText.text = "You cannot move Down\n";
+            //indicatorText.text = "You cannot move Down\n";
             analogRef.set_renderer(AnalogUI.Directions.Down, true);
         }
         if (directionalLimit == Direction.Up) {
             enemy.upLimit = true;
-            indicatorText.text = "You cannot move Up\n";
+            //indicatorText.text = "You cannot move Up\n";
             analogRef.set_renderer(AnalogUI.Directions.Up, true);
         }
     }
@@ -69,6 +69,6 @@ public class DirectionalLimit : MonoBehaviour {
         if (directionalLimit == Direction.Jump) {
             enemy.jumpLimit = false;
         }
-        indicatorText.text = "No limits";
+        //indicatorText.text = "No limits";
     }
 }

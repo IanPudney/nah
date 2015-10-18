@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent (typeof (AudioSource))]
 public class Door : MonoBehaviour {
 	public float openPosition = 90f;
 	public float openPeriod = 0.25f;
@@ -23,6 +24,7 @@ public class Door : MonoBehaviour {
 			if(!wasOpen) {
 				wasOpen = true;
 				passedPeriod = 0;
+				GetComponent<AudioSource>().Play ();
 			}
             from = rotator.localRotation;
             to = Quaternion.AngleAxis(-openPosition, Vector3.up); //TODO: make Vector3.up be this object's relative up
