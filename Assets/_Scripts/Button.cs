@@ -4,10 +4,12 @@ using System.Collections;
 public class Button : MonoBehaviour {
 	public bool deadMan = false;
 	public GameObject target;
+	public GameObject Emitter;
 
 	int pressTrack = 0;
 	Vector3 startPosition;
 	GameObject slider;
+	GameObject emitter;
 
 	// Use this for initialization
 	void Start () {
@@ -22,6 +24,7 @@ public class Button : MonoBehaviour {
 				Debug.Log ("Button Released");
 				slider.transform.localPosition = startPosition;
 				target.gameObject.SendMessage("ButtonReleased", this);
+				if(emitter != null) Destroy (emitter);
 			}
 		}
 	}
@@ -30,9 +33,14 @@ public class Button : MonoBehaviour {
 		if(pressTrack == 0) {
 			pressTrack = 2;
 			Debug.Log ("Button Pressed");
-			startPosition = slider.	transform.localPosition;
+			startPosition = slider.transform.localPosition;
 			slider.transform.localPosition -= new Vector3(0, 0.1f, 0);
 			target.gameObject.SendMessage("ButtonPressed", this);
+			emitter = GameObject.Instantiate(Emitter);
+			emitter.transform.parent = transform;
+			emitter.transform.localPosition = Vector3.zero;
+			emitter.transform.localRotation = Quaternion.identity;
+			emitter.GetComponent<BeamEmitter>().target = target;
 		}
 		pressTrack = 2;
 	}
@@ -45,4 +53,6 @@ public class Button : MonoBehaviour {
 		}
 		return null;
 	}
+
+
 }
