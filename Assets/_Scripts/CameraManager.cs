@@ -7,17 +7,20 @@ public class CameraManager : Difference {
 	Vector3 velocity;
 	Vector3 maxVelocity;
 	string rotationAxis;
+	string panAxis;
 
 	// Use this for initialization
 	void Start () {
 		offsetFromPlayer = transform.position - player.transform.position;
 		if(isPlayer1) {
 			gameObject.GetComponent<Camera>().rect = new Rect(0, 0, 0.5f, 1);
-			rotationAxis = "Rotation";
+			panAxis = "Pan";
+			//rotationAxis = "Rotation";
 
 		} else {
 			gameObject.GetComponent<Camera>().rect = new Rect(0.5f, 0, 0.5f, 1);
-			rotationAxis = "Rotation2";
+			panAxis = "Pan2";
+			//rotationAxis = "Rotation2";
 		}
 		velocity = Vector3.zero;
 	}
@@ -29,7 +32,7 @@ public class CameraManager : Difference {
 
 	// Update is called once per frame
 	void Update () {
-		Vector3 toMove = player.transform.position + offsetFromPlayer - transform.position;
+		/*Vector3 toMove = player.transform.position + offsetFromPlayer - transform.position;
 		velocity += toMove * Time.deltaTime;
 		velocity *= 0.5f;
 		transform.position += velocity;
@@ -52,6 +55,15 @@ public class CameraManager : Difference {
 		} else {
 			rotating = false;
 		}
+		float oldRotation = transform.eulerAngles.y;
 		transform.LookAt (player.transform); 
+		Debug.Log ("Rotating controls by " + (transform.rotation.y - oldRotation).ToString());
+		player.GetComponent<Player>().RotateControls(transform.rotation.y - oldRotation);*/
+		float rotDeg = Input.GetAxis (panAxis) * 120 * Time.deltaTime;
+		Quaternion stickRotation = Quaternion.Euler (0, rotDeg, 0);
+		offsetFromPlayer = stickRotation * offsetFromPlayer;
+		transform.position = player.transform.position + offsetFromPlayer;
+		transform.LookAt (player.transform); 
+		player.GetComponent<Player>().RotateControls(rotDeg);
 	}
 }
