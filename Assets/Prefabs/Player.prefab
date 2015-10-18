@@ -186,7 +186,7 @@ GameObject:
   - 23: {fileID: 2319284}
   - 102: {fileID: 10261422}
   m_Layer: 5
-  m_Name: Right
+  m_Name: Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -219,7 +219,7 @@ GameObject:
   - 23: {fileID: 2305758}
   - 102: {fileID: 10288962}
   m_Layer: 5
-  m_Name: left
+  m_Name: Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -244,7 +244,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 130412}
   m_LocalRotation: {x: -.707106829, y: 0, z: 0, w: .707106709}
-  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalPosition: {x: 0, y: 0, z: -1.10000002}
   m_LocalScale: {x: .0549999997, y: .0299999882, z: .0299999882}
   m_Children: []
   m_Father: {fileID: 494698}
@@ -272,7 +272,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 198466}
   m_LocalRotation: {x: .500000238, y: -.499999821, z: -.499999911, w: -.500000119}
-  m_LocalPosition: {x: -1, y: -0, z: 0}
+  m_LocalPosition: {x: -1.10000002, y: -0, z: 0}
   m_LocalScale: {x: .0549999997, y: .0299999882, z: .0299999882}
   m_Children: []
   m_Father: {fileID: 494698}
@@ -336,7 +336,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 187536}
   m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106709}
-  m_LocalPosition: {x: 0, y: -0, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1.10000002}
   m_LocalScale: {x: .0549999997, y: .02999999, z: .02999999}
   m_Children: []
   m_Father: {fileID: 494698}
@@ -348,7 +348,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 193848}
   m_LocalRotation: {x: -.5, y: -.5, z: -.500000119, w: .49999994}
-  m_LocalPosition: {x: 1, y: 0, z: 0}
+  m_LocalPosition: {x: 1.10000002, y: 0, z: 0}
   m_LocalScale: {x: .0549999997, y: .0299999882, z: .0299999882}
   m_Children: []
   m_Father: {fileID: 494698}
@@ -384,7 +384,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 177478}
   m_LocalRotation: {x: -4.17232513e-07, y: 0, z: 0, w: -1}
-  m_LocalPosition: {x: 0, y: -.291999996, z: .0681047887}
+  m_LocalPosition: {x: 0, y: -.291999996, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 474022}
@@ -896,6 +896,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayer1: 1
   camera: {fileID: 0}
+  directions: []
+  red: {fileID: 2100000, guid: 9701993a0f620164ab7bfe72a6314a82, type: 2}
+  green: {fileID: 2100000, guid: b14f62a249826f9489dc67037730ac6e, type: 2}
+  limitCounter: 0
 --- !u!114 &11486336
 MonoBehaviour:
   m_ObjectHideFlags: 1
