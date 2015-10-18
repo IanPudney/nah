@@ -144,7 +144,6 @@ public class Player : Difference {
 
 		//apply limits
 		controller.Move(moveDirection * Time.deltaTime);
-
 	}
 
 	void OnControllerColliderHit(ControllerColliderHit hit){

@@ -36,11 +36,13 @@ public class Button : MonoBehaviour {
 			startPosition = slider.transform.localPosition;
 			slider.transform.localPosition -= new Vector3(0, 0.1f, 0);
 			target.gameObject.SendMessage("ButtonPressed", this);
-			emitter = GameObject.Instantiate(Emitter);
-			emitter.transform.parent = transform;
-			emitter.transform.localPosition = Vector3.zero;
-			emitter.transform.localRotation = Quaternion.identity;
-			emitter.GetComponent<BeamEmitter>().target = target;
+			try {
+				emitter = GameObject.Instantiate(Emitter);
+				emitter.transform.parent = transform;
+				emitter.transform.localPosition = Vector3.zero;
+				emitter.transform.localRotation = Quaternion.identity;
+				emitter.GetComponent<BeamEmitter>().target = target;
+			} catch (UnassignedReferenceException ex) {}
 		}
 		pressTrack = 2;
 	}
