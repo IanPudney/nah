@@ -73,7 +73,7 @@ public class Player : Difference {
 		CharacterController controller = GetComponent<CharacterController>();
 		float cacheY = moveDirection.y;
 		Vector3 input = new Vector3(Input.GetAxis(horizontalAxis), 0, Input.GetAxis(verticalAxis));
-<<<<<<< HEAD
+
 		if(leftLimit) input.x = Mathf.Max(input.x, 0);
 		if(rightLimit) input.x = Mathf.Min(input.x, 0);
 		if(upLimit) input.x = Mathf.Max(input.y, 0);
@@ -86,12 +86,11 @@ public class Player : Difference {
 		} else {
 			previousInput = input;
 		}
-=======
+
 		if(leftLimit && input.x < 0) input.x = 0;
 		if(rightLimit && input.x > 0) input.x = 0;
 		if(downLimit && input.z < 0) input.z = 0;
 		if(upLimit && input.z > 0) input.z = 0;
->>>>>>> a6d45509773eda350c897281368cd8f720b2e9ef
 		moveDirection = controlRotation * input;
 		moveDirection *= speed;
 		moveDirection.y = cacheY;
