@@ -37,6 +37,7 @@ public class Player : Difference {
     public bool forceJump, weakJump = false;
     public bool speedUp = false;
 	public bool lowGravity = false;
+    public bool cameraLimit = false;
 
     /* PARTICLES */
     public GameObject[] fireParticles;

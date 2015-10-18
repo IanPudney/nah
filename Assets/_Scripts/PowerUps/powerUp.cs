@@ -6,7 +6,7 @@ public class powerUp : Difference{
     public AudioClip clip;
     public GameObject tempSoundObject;
     
-    public enum DebuffChoice { Left, Right, Down, Up, Jump, ForceJump, LowGravity}
+    public enum DebuffChoice { Left, Right, Down, Up, Jump, ForceJump, LowGravity, CameraLimit}
     public DebuffChoice debuffChoice;
     public List<GameObject> debuff = new List<GameObject>();
     Player owner;
