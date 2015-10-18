@@ -13,8 +13,18 @@ public class World : MonoBehaviour {
 			foreach(Difference diff in duplicate.GetComponentsInChildren<Difference>()) {
 				diff.isPlayer1 = false;
 			}
-			foreach(GameObject obj in GetAllChilds()) {
-
+			List<GameObject> leftChildren = GetAllChilds(gameObject);
+			List<GameObject> rightChildren = GetAllChilds (duplicate);
+			if(leftChildren.Count != rightChildren.Count) {
+				throw new UnityException("Duplicated tree has different size");
+			}
+			for(int i = 0; i < leftChildren.Count; ++i) {
+				leftChildren[i].AddComponent<Otherizer>();
+				rightChildren[i].AddComponent<Otherizer>();
+				Otherizer left = leftChildren[i].GetComponent<Otherizer>();
+				Otherizer right = rightChildren[i].GetComponent<Otherizer>();
+				left.other = right.gameObject;
+				right.other = left.gameObject;
 			}
 		}
 	}
