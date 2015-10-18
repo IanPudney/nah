@@ -6,6 +6,7 @@ public class MovingObject : MonoBehaviour {
 	public Vector3 end2;
 	public float period;
 	public float fraction = 0;
+    public bool loop = false;
 	bool direction = true;
 
 	// Use this for initialization
@@ -28,5 +29,5 @@ public class MovingObject : MonoBehaviour {
 				direction = true;
 			}
 		}
-	}
+    }
 }
