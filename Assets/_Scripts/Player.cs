@@ -36,6 +36,9 @@ public class Player : Difference {
     public bool forceJump, weakJump = false;
     public bool speedUp = false;
 
+    /* PARTICLES */
+    public GameObject[] fireParticles;
+
 	// Use this for initialization
 	void Start () {
 		if(isPlayer1) {
@@ -88,7 +91,7 @@ public class Player : Difference {
             previousGroundedPosition = transform.position;
             if (jumpFrame == 0 && (forceJump || Input.GetButton(jumpAxis))) {
                 if (!jumpLimit) {
-					jumpFrame = 5;
+                    jumpFrame = 5;
                     audioSources[1].Play();
                     moveDirection.y += jumpSpeed;
                 }
