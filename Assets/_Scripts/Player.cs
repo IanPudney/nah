@@ -124,8 +124,6 @@ public class Player : Difference {
 		//apply limits
 		controller.Move(moveDirection * Time.deltaTime);
 
-		Debug.Log ("Jump frame: " + jumpFrame.ToString());
-
 	}
 
 	void OnControllerColliderHit(ControllerColliderHit hit){
