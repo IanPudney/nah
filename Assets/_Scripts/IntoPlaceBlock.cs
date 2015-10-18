@@ -13,7 +13,6 @@ public class IntoPlaceBlock : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		transform.localPosition += Vector3.up * moveDistance * Time.deltaTime / period;
-		Debug.Log (transform.position.y);
 		Debug.Log(initialPosition.y + moveDistance);
 		if(transform.localPosition.y > initialPosition.y + moveDistance) {
 			Debug.Log ("destroying this");

@@ -6,12 +6,14 @@ public class Button : MonoBehaviour {
 	public bool deadMan = false;
 	public GameObject target;
 	public GameObject Emitter;
+	public bool other = false;
 
 	int pressTrack = 0;
 	Vector3 startPosition;
 	GameObject slider;
 	GameObject emitter;
 	int simulateNextFrame = 0;
+	GameObject actualTarget;
 
 	// Use this for initialization
 	void Start () {
@@ -22,6 +24,11 @@ public class Button : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if(other) {
+			actualTarget = this.GetOther ().target;
+		} else {
+			actualTarget = target;
+		}
 		try {
 			if(simulateNextFrame == 1) {
 				emitter.GetComponent<ParticleSystem>().Simulate(emitter.GetComponent<ParticleSystem>().startLifetime);
@@ -38,7 +45,7 @@ public class Button : MonoBehaviour {
 				try {
 					slider.transform.localPosition = startPosition;
 				} catch (Exception ex) {}
-					target.gameObject.SendMessage("ButtonReleased", this);
+				actualTarget.gameObject.SendMessage("ButtonReleased", this);
 					if(emitter != null) Destroy (emitter);
 			}
 		}
@@ -53,14 +60,14 @@ public class Button : MonoBehaviour {
 				slider.transform.localPosition -= new Vector3(0, 0.1f, 0);
 			} catch (Exception ex) {}
 
-			target.gameObject.SendMessage("ButtonPressed", this);
+			actualTarget.gameObject.SendMessage("ButtonPressed", this);
 
 			try {
 				emitter = GameObject.Instantiate(Emitter);
 				emitter.transform.parent = transform;
 				emitter.transform.localPosition = Vector3.zero;
 				emitter.transform.localRotation = Quaternion.identity;
-				emitter.GetComponent<BeamEmitter>().target = target;
+				emitter.GetComponent<BeamEmitter>().target = actualTarget;
 				simulateNextFrame = 5;
 			} catch (Exception ex) {}
 		}
