@@ -22,25 +22,22 @@ public class DirectionalLimit : MonoBehaviour {
 	
 	// This limit will stop the player from moving on an X or Z axis.
 	void Update () {
+		indicatorText.text = "";
         if (directionalLimit == Direction.Left) {
             enemy.leftLimit = true;
-            indicatorText.text = "You cannot move Left";
+            indicatorText.text += "You cannot move Left\n";
         }
-        else if (directionalLimit == Direction.Right) {
+        if (directionalLimit == Direction.Right) {
             enemy.rightLimit = true;
-            indicatorText.text = "You cannot move Right";
+            indicatorText.text = "You cannot move Right\n";
         }
-        else if (directionalLimit == Direction.Down) {
+        if (directionalLimit == Direction.Down) {
             enemy.downLimit = true;
-            indicatorText.text = "You cannot move Down";
+            indicatorText.text = "You cannot move Down\n";
         }
-        else if (directionalLimit == Direction.Up) {
+        if (directionalLimit == Direction.Up) {
             enemy.upLimit = true;
-            indicatorText.text = "You cannot move Up";
-        }
-        else if (directionalLimit == Direction.Jump) {
-            enemy.jumpLimit = true;
-            indicatorText.text = "You cannot Jump";
+            indicatorText.text = "You cannot move Up\n";
         }
 	}
 
@@ -48,16 +45,16 @@ public class DirectionalLimit : MonoBehaviour {
         if (directionalLimit == Direction.Left) {
             enemy.leftLimit = false;
         }
-        else if (directionalLimit == Direction.Right) {
+        if (directionalLimit == Direction.Right) {
             enemy.rightLimit = false;
         }
-        else if (directionalLimit == Direction.Down) {
+        if (directionalLimit == Direction.Down) {
             enemy.downLimit = false;
         }
-        else if (directionalLimit == Direction.Up) {
+        if (directionalLimit == Direction.Up) {
             enemy.upLimit = false;
         }
-        else if (directionalLimit == Direction.Jump) {
+        if (directionalLimit == Direction.Jump) {
             enemy.jumpLimit = false;
         }
         indicatorText.text = "No limits";

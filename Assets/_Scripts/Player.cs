@@ -12,6 +12,7 @@ public class Player : Difference {
 	private Vector3 previousPosition = Vector3.zero;
 	private Vector3 doublePreviousPosition = Vector3.zero;
     private Vector3 previousGroundedPosition = Vector3.zero;
+	private int jumpFrame = 0;
 
 	string horizontalAxis;
 	string verticalAxis;
@@ -32,7 +33,7 @@ public class Player : Difference {
 
     /* LIMITS */
     public bool leftLimit, rightLimit, upLimit, downLimit, jumpLimit = false;
-    public bool constantJump, weakJump = false;
+    public bool forceJump, weakJump = false;
     public bool speedUp = false;
 
 	// Use this for initialization
@@ -85,15 +86,19 @@ public class Player : Difference {
                     stepPlayed = false;
             }
             previousGroundedPosition = transform.position;
-            if (Input.GetButton(jumpAxis)) {
+            if (jumpFrame == 0 && (forceJump || Input.GetButton(jumpAxis))) {
                 if (!jumpLimit) {
+					jumpFrame = 5;
                     audioSources[1].Play();
                     moveDirection.y += jumpSpeed;
                 }
             }
+			jumpFrame-= 1;
+			if(jumpFrame < 0) {
+				jumpFrame = 0;
+			}
 		} else {
 			Vector3 newMoveDirection = controlRotation * new Vector3(Input.GetAxis(horizontalAxis), 0, Input.GetAxis(verticalAxis));
-			Debug.Log (newMoveDirection);
 			newMoveDirection.y = 0;
 			newMoveDirection *= airSpeed;
 			moveDirection += newMoveDirection;
@@ -127,6 +132,8 @@ public class Player : Difference {
 		previousPosition = transform.position;
 		controller.Move(moveDirection * Time.deltaTime);
 
+		Debug.Log ("Jump frame: " + jumpFrame.ToString());
+
 	}
 
 	void OnControllerColliderHit(ControllerColliderHit hit){
@@ -143,9 +150,7 @@ public class Player : Difference {
 	}
 
 	Transform GetChild(GameObject from, string name) {
-		Debug.Log (from);
 		foreach (Transform child in from.transform){
-			Debug.Log (child);
 			if (child.name == name){
 				return child;
 			}
