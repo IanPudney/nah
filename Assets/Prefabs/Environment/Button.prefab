@@ -45,6 +45,7 @@ GameObject:
   - 4: {fileID: 482908}
   - 95: {fileID: 9585982}
   - 114: {fileID: 11491246}
+  - 65: {fileID: 6529906}
   m_Layer: 0
   m_Name: Button
   m_TagString: Untagged
@@ -59,8 +60,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 112614}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.52917224e-05, y: -.001274999, z: 0}
-  m_LocalScale: {x: .899999976, y: .100000001, z: .899999976}
+  m_LocalPosition: {x: 0, y: -.119999997, z: 0}
+  m_LocalScale: {x: 70, y: 15, z: 70}
   m_Children: []
   m_Father: {fileID: 482908}
   m_RootOrder: 1
@@ -71,8 +72,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 116188}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: .000648248359, z: 0}
-  m_LocalScale: {x: .0799999982, y: .0199999996, z: .0799999982}
+  m_LocalPosition: {x: 0, y: -.0329999998, z: 0}
+  m_LocalScale: {x: 60, y: 10, z: 60}
   m_Children: []
   m_Father: {fileID: 482908}
   m_RootOrder: 0
@@ -83,7 +84,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 189882}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.76985168, y: 5.02933359, z: 19.0839596}
+  m_LocalPosition: {x: 23.9599991, y: 6.67999983, z: -26.6800003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 453158}
@@ -124,7 +125,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 7a9a92093d56e884daf0a6978152e917, type: 2}
+  - {fileID: 2100000, guid: e36201e6981887c4b82168ea21f21a43, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -152,6 +153,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 116188}
   m_Mesh: {fileID: 4300000, guid: 64dbfbc2614446a4ebf428733eadef8d, type: 3}
+--- !u!65 &6529906
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 189882}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: .600000024, y: .100000001, z: .600000024}
+  m_Center: {x: 0, y: -.100000001, z: 0}
 --- !u!95 &9506106
 Animator:
   serializedVersion: 3
