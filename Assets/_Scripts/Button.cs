@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class Button : MonoBehaviour {
 	public bool deadMan = false;
@@ -10,21 +11,35 @@ public class Button : MonoBehaviour {
 	Vector3 startPosition;
 	GameObject slider;
 	GameObject emitter;
+	int simulateNextFrame = 0;
 
 	// Use this for initialization
 	void Start () {
-		slider = GetChild ("Slider").gameObject;
+		try {
+			slider = GetChild ("Slider").gameObject;
+		} catch (Exception ex) {}
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		try {
+			if(simulateNextFrame == 1) {
+				emitter.GetComponent<ParticleSystem>().Simulate(emitter.GetComponent<ParticleSystem>().startLifetime);
+				emitter.GetComponent<ParticleSystem>().Play();
+				simulateNextFrame = 0;
+			} else {
+				simulateNextFrame--;
+			}
+		} catch (Exception ex) {}
 		if(deadMan && pressTrack > 0) {
 			pressTrack--;
 			if(pressTrack == 0) {
 				Debug.Log ("Button Released");
-				slider.transform.localPosition = startPosition;
-				target.gameObject.SendMessage("ButtonReleased", this);
-				if(emitter != null) Destroy (emitter);
+				try {
+					slider.transform.localPosition = startPosition;
+				} catch (Exception ex) {}
+					target.gameObject.SendMessage("ButtonReleased", this);
+					if(emitter != null) Destroy (emitter);
 			}
 		}
 	}
@@ -33,16 +48,21 @@ public class Button : MonoBehaviour {
 		if(pressTrack == 0) {
 			pressTrack = 2;
 			Debug.Log ("Button Pressed");
-			startPosition = slider.transform.localPosition;
-			slider.transform.localPosition -= new Vector3(0, 0.1f, 0);
+			try {
+				startPosition = slider.transform.localPosition;
+				slider.transform.localPosition -= new Vector3(0, 0.1f, 0);
+			} catch (Exception ex) {}
+
 			target.gameObject.SendMessage("ButtonPressed", this);
+
 			try {
 				emitter = GameObject.Instantiate(Emitter);
 				emitter.transform.parent = transform;
 				emitter.transform.localPosition = Vector3.zero;
 				emitter.transform.localRotation = Quaternion.identity;
 				emitter.GetComponent<BeamEmitter>().target = target;
-			} catch (UnassignedReferenceException ex) {}
+				simulateNextFrame = 5;
+			} catch (Exception ex) {}
 		}
 		pressTrack = 2;
 	}

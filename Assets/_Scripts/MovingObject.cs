@@ -9,6 +9,8 @@ public class MovingObject : MonoBehaviour {
     public bool loop = false;
 	bool direction = true;
 
+	int pressTrack = 0;
+
 	// Use this for initialization
 	void Start () {
 		end1 += transform.localPosition;
