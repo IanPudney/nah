@@ -65,7 +65,12 @@ public class Player : Difference {
 	void Update () {
 		CharacterController controller = GetComponent<CharacterController>();
 		float cacheY = moveDirection.y;
-		moveDirection = controlRotation * new Vector3(Input.GetAxis(horizontalAxis), 0, Input.GetAxis(verticalAxis));
+		Vector3 input = new Vector3(Input.GetAxis(horizontalAxis), 0, Input.GetAxis(verticalAxis));
+		if(leftLimit) input.x = Mathf.Max(input.x, 0);
+		if(rightLimit) input.x = Mathf.Min(input.x, 0);
+		if(upLimit) input.x = Mathf.Max(input.y, 0);
+		if(downLimit) input.x = Mathf.Min(input.y, 0);
+		moveDirection = controlRotation * input;
 		moveDirection *= speed;
 		moveDirection.y = cacheY;
 
@@ -115,6 +120,8 @@ public class Player : Difference {
 		}
 		doublePreviousPosition = previousPosition;
 		previousPosition = transform.position;
+
+		//apply limits
 		controller.Move(moveDirection * Time.deltaTime);
 
 		Debug.Log ("Jump frame: " + jumpFrame.ToString());
