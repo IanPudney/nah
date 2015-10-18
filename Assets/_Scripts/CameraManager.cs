@@ -60,10 +60,11 @@ public class CameraManager : Difference {
 		Debug.Log ("Rotating controls by " + (transform.rotation.y - oldRotation).ToString());
 		player.GetComponent<Player>().RotateControls(transform.rotation.y - oldRotation);*/
 		float rotDeg = Input.GetAxis (panAxis) * 120 * Time.deltaTime;
-		Quaternion stickRotation = Quaternion.Euler (0, rotDeg, 0);
+        if (player.GetComponent<Player>().cameraLimit) rotDeg = 0;
+        Quaternion stickRotation = Quaternion.Euler (0, rotDeg, 0);
 		offsetFromPlayer = stickRotation * offsetFromPlayer;
 		transform.position = player.transform.position + offsetFromPlayer;
-		transform.LookAt (player.transform); 
+		transform.LookAt (player.transform);
 		player.GetComponent<Player>().RotateControls(rotDeg);
 	}
 }
