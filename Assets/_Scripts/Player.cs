@@ -86,8 +86,10 @@ public class Player : Difference {
             }
             previousGroundedPosition = transform.position;
             if (Input.GetButton(jumpAxis)) {
-                audioSources[1].Play();
-                moveDirection.y += jumpSpeed;
+                if (!jumpLimit) {
+                    audioSources[1].Play();
+                    moveDirection.y += jumpSpeed;
+                }
             }
 		} else {
 			Vector3 newMoveDirection = controlRotation * new Vector3(Input.GetAxis(horizontalAxis), 0, Input.GetAxis(verticalAxis));

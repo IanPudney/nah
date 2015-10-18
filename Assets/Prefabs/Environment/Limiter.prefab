@@ -562,6 +562,10 @@ MonoBehaviour:
   debuffChoice: 0
   debuff:
   - {fileID: 139864, guid: a430d583bcfc8914ca5780410b1db4be, type: 2}
+  - {fileID: 139864, guid: 00849478b44b81a4b9335295f5203cbb, type: 2}
+  - {fileID: 139864, guid: 074a9122e0d29bf48b3c69648c2e1f12, type: 2}
+  - {fileID: 139864, guid: 00184ba6418edbc44910f0f5682b42a8, type: 2}
+  - {fileID: 139864, guid: 08ae2bf824fff8943b1b2d0210c995bd, type: 2}
 --- !u!135 &13569738
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -1672,7 +1676,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: debuff.Array.size
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalPosition.x
@@ -1746,6 +1750,22 @@ Prefab:
       propertyPath: isPlayer1
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: debuff.Array.data[1]
+      value: 
+      objectReference: {fileID: 139864, guid: 00849478b44b81a4b9335295f5203cbb, type: 2}
+    - target: {fileID: 0}
+      propertyPath: debuff.Array.data[2]
+      value: 
+      objectReference: {fileID: 139864, guid: 074a9122e0d29bf48b3c69648c2e1f12, type: 2}
+    - target: {fileID: 0}
+      propertyPath: debuff.Array.data[3]
+      value: 
+      objectReference: {fileID: 139864, guid: 00184ba6418edbc44910f0f5682b42a8, type: 2}
+    - target: {fileID: 0}
+      propertyPath: debuff.Array.data[4]
+      value: 
+      objectReference: {fileID: 139864, guid: 08ae2bf824fff8943b1b2d0210c995bd, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 174626}
