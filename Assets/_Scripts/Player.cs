@@ -59,6 +59,8 @@ public class Player : Difference {
             audioSources[i] = this.gameObject.AddComponent<AudioSource>();
             audioSources[i].clip = audioClips[i];
         }
+		audioSources[0].volume = 0.2f;
+		audioSources[1].volume = 0f;
 	}
 
 	// Update is called once per frame
