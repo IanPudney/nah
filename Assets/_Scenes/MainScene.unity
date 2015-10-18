@@ -9945,7 +9945,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11487396, guid: ebca2177981bede43a1dda2d287b46d6, type: 2}
       propertyPath: debuffChoice
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ebca2177981bede43a1dda2d287b46d6, type: 2}
@@ -14333,6 +14333,10 @@ Prefab:
     - target: {fileID: 492464, guid: ebca2177981bede43a1dda2d287b46d6, type: 2}
       propertyPath: m_RootOrder
       value: 33
+      objectReference: {fileID: 0}
+    - target: {fileID: 11487396, guid: ebca2177981bede43a1dda2d287b46d6, type: 2}
+      propertyPath: debuffChoice
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ebca2177981bede43a1dda2d287b46d6, type: 2}

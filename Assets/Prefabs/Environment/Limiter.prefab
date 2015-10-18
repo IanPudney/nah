@@ -567,6 +567,7 @@ MonoBehaviour:
   - {fileID: 139864, guid: 00184ba6418edbc44910f0f5682b42a8, type: 2}
   - {fileID: 139864, guid: 08ae2bf824fff8943b1b2d0210c995bd, type: 2}
   - {fileID: 133582, guid: 08beee6de47216d4dbe6a86e12d85868, type: 2}
+  - {fileID: 139864, guid: 877f9e71666f7a042a9d22a2beaff841, type: 2}
 --- !u!135 &13569738
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -1677,7 +1678,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: debuff.Array.size
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalPosition.x
@@ -1767,6 +1768,10 @@ Prefab:
       propertyPath: debuff.Array.data[4]
       value: 
       objectReference: {fileID: 139864, guid: 08ae2bf824fff8943b1b2d0210c995bd, type: 2}
+    - target: {fileID: 0}
+      propertyPath: debuff.Array.data[6]
+      value: 
+      objectReference: {fileID: 139864, guid: 877f9e71666f7a042a9d22a2beaff841, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 174626}
