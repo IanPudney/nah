@@ -7,10 +7,10 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Ground2
-  m_Shader: {fileID: 4800000, guid: 9ce107479d11178d11005b9844295342, type: 3}
+  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: _EMISSION
   m_LightmapFlags: 1
-  m_CustomRenderQueue: 2000
+  m_CustomRenderQueue: -1
   stringTagMap: {}
   m_SavedProperties:
     serializedVersion: 2
@@ -142,11 +142,11 @@ Material:
       data:
         first:
           name: _EmissionColor
-        second: {r: .198529422, g: .198529422, b: .198529422, a: 1}
+        second: {r: .279411793, g: .279411793, b: .279411793, a: 1}
       data:
         first:
           name: _Color
-        second: {r: .800000072, g: .184313729, b: .184313729, a: 1}
+        second: {r: .173010364, g: .865999997, b: 0, a: 1}
       data:
         first:
           name: _OutlineColor
