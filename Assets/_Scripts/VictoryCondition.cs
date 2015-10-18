@@ -14,7 +14,7 @@ public class VictoryCondition : MonoBehaviour {
             text.text = "Victory!";
             text.gameObject.SetActive(true);
         }
-        //Invoke("ReloadLevel", 10f);
+        //Invoke("ReloadLevel", 30f);
     }
 	
 	// Update is called once per frame

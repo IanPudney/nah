@@ -9,13 +9,13 @@ public class IntroButton : MonoBehaviour {
 	}
 
     public void LoadMain() {
-        Application.LoadLevel("MainScene");
+        Application.LoadLevel("Level2");
     }
 
 	// Update is called once per frame
 	void Update () {
         if (Mathf.Abs(Input.GetAxis("Start")) > .05f) {
-            Application.LoadLevel("MainScene");
+            Application.LoadLevel("Level2");
         }
 	}
 }
