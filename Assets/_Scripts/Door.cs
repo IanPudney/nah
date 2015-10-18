@@ -5,7 +5,10 @@ public class Door : MonoBehaviour {
 	public float openPosition = 90f;
 	public float openPeriod = 0.25f;
 	public bool open = false;
-	public Transform rotator;
+	public bool wasOpen = true;
+	Transform rotator;
+	public float passedPeriod = Mathf.Infinity;
+
 
 	// Use this for initialization
 	void Start () {
@@ -17,13 +20,26 @@ public class Door : MonoBehaviour {
 		Quaternion from;
 		Quaternion to;
 		if(open) {
+			if(!wasOpen) {
+				wasOpen = true;
+				passedPeriod = 0;
+			}
             from = rotator.localRotation;
             to = Quaternion.AngleAxis(-openPosition, Vector3.up); //TODO: make Vector3.up be this object's relative up
 		} else {
+			if(wasOpen) {
+				wasOpen = false;
+				passedPeriod = 0;
+			}
             from = rotator.localRotation;
             to = Quaternion.identity;
         }
-		rotator.localRotation = Quaternion.RotateTowards(from, to, -openPosition * Time.deltaTime / openPeriod);
+		if(passedPeriod < openPeriod) {
+			Quaternion rot = Quaternion.RotateTowards(from, to, -openPosition * Time.deltaTime / openPeriod);
+			rotator.localRotation = rot;
+			passedPeriod += Time.deltaTime;
+		}
+
 	}
 
 	void ButtonPressed(Button unused) {
