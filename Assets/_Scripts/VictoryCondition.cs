@@ -10,9 +10,11 @@ public class VictoryCondition : MonoBehaviour {
 	// Use this for initialization
     void OnPlayerHit(ControllerColliderHit coll) {
         //col.gameObject.GetComponent<Player>();
-        text.text = "Victory!";
-        text.gameObject.SetActive(true);
-        Invoke("ReloadLevel", 10f);
+        if (text != null) {
+            text.text = "Victory!";
+            text.gameObject.SetActive(true);
+        }
+        //Invoke("ReloadLevel", 10f);
     }
 	
 	// Update is called once per frame
