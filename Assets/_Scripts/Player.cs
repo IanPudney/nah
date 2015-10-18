@@ -64,18 +64,13 @@ public class Player : Difference {
 	// Update is called once per frame
 	void Update () {
 		CharacterController controller = GetComponent<CharacterController>();
-
-		moveDirection.x = (transform.position.x - doublePreviousPosition.x) / Time.deltaTime;
-		moveDirection.z = (transform.position.z - doublePreviousPosition.z) / Time.deltaTime;
+		float cacheY = moveDirection.y;
+		moveDirection = controlRotation * new Vector3(Input.GetAxis(horizontalAxis), 0, Input.GetAxis(verticalAxis));
+		moveDirection *= speed;
+		moveDirection.y = cacheY;
 
 		if (controller.isGrounded) {
-			moveDirection = controlRotation * new Vector3(Input.GetAxis(horizontalAxis), 0, Input.GetAxis(verticalAxis));
-            //LIMIT MOVEMENTS IF TRUE
-            if (leftLimit & moveDirection.x < 0) { moveDirection.x = 0; }
-            if (rightLimit & moveDirection.x > 0) { moveDirection.x = 0; }
-            if (upLimit & moveDirection.y > 0) { moveDirection.y = 0; }
-            if (downLimit & moveDirection.y < 0) { moveDirection.y = 0; }
-            moveDirection *= speed;
+			moveDirection.y = 0;
             //Only play run sound when input is down
             if (Input.GetAxis(horizontalAxis) > 0 || Input.GetAxis(verticalAxis) > 0) {
                 if (!stepPlayed && legDirection == false) {
@@ -97,16 +92,6 @@ public class Player : Difference {
 			if(jumpFrame < 0) {
 				jumpFrame = 0;
 			}
-		} else {
-			Vector3 newMoveDirection = controlRotation * new Vector3(Input.GetAxis(horizontalAxis), 0, Input.GetAxis(verticalAxis));
-			newMoveDirection.y = 0;
-			newMoveDirection *= airSpeed;
-			moveDirection += newMoveDirection;
-
-			if(moveDirection.x > speed)  moveDirection.x =  speed;
-			if(moveDirection.x < -speed) moveDirection.x = -speed;
-			if(moveDirection.z > speed)  moveDirection.z =  speed;
-			if(moveDirection.z < -speed) moveDirection.z = -speed;
 		}
 		moveDirection.y -= gravity * Time.deltaTime;
 		if((doublePreviousPosition - transform.position).magnitude > 0.01f) {
