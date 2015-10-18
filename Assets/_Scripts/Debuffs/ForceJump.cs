@@ -17,6 +17,9 @@ public class ForceJump : MonoBehaviour {
 			}
 		}
 		enemy.forceJump = true;
+        for (int i = 0; i < enemy.fireParticles.Length; i++) {
+            enemy.fireParticles[i].SetActive(true);
+        }
 	}
 
 	void Update () {
@@ -25,5 +28,8 @@ public class ForceJump : MonoBehaviour {
 
 	void OnDestroy() {
 		enemy.forceJump = false;
+        for (int i = 0; i < enemy.fireParticles.Length; i++) {
+            enemy.fireParticles[i].SetActive(false);
+        }
 	}
 }
