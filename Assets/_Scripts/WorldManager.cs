@@ -18,7 +18,9 @@ public class WorldManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+		if(Input.GetKeyDown (KeyCode.Backslash)) {
+			Application.LoadLevel ("IntroScene");
+		}
 	}
 
 	public void incrElevator() {
