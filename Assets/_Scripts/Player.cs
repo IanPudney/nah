@@ -71,15 +71,16 @@ public class Player : Difference {
 
 	// Update is called once per frame
 	void Update () {
+        //var inputDevice = InputManager.ActiveDevice;
 		CharacterController controller = GetComponent<CharacterController>();
 		float cacheY = moveDirection.y;
-		Vector3 input = new Vector3(Input.GetAxis(horizontalAxis), 0, Input.GetAxis(verticalAxis));
+		Vector3 input = new Vector3(Input.GetAxis(horizontalAxis) , 0, Input.GetAxis(verticalAxis));
 
-		if(leftLimit) input.x = Mathf.Max(input.x, 0);
+/*		if(leftLimit) input.x = Mathf.Max(input.x, 0);
 		if(rightLimit) input.x = Mathf.Min(input.x, 0);
-		if(upLimit) input.x = Mathf.Max(input.y, 0);
-		if(downLimit) input.x = Mathf.Min(input.y, 0);
-		if (lowGravity && !controller.isGrounded) {
+		if(upLimit) input.z = Mathf.Max(input.z, 0);
+		if(downLimit) input.z = Mathf.Min(input.z, 0);
+*/		if (lowGravity && !controller.isGrounded) {
 			input = previousInput;
 			//input.x = (doublePreviousPosition - transform.position).x /2;
 			//input.z = (doublePreviousPosition - transform.position).z /2;

@@ -32,6 +32,7 @@ public class CameraManager : Difference {
 
 	// Update is called once per frame
 	void Update () {
+        //var inputDevice = InputManager.ActiveDevice;
 		/*Vector3 toMove = player.transform.position + offsetFromPlayer - transform.position;
 		velocity += toMove * Time.deltaTime;
 		velocity *= 0.5f;
@@ -59,7 +60,7 @@ public class CameraManager : Difference {
 		transform.LookAt (player.transform); 
 		Debug.Log ("Rotating controls by " + (transform.rotation.y - oldRotation).ToString());
 		player.GetComponent<Player>().RotateControls(transform.rotation.y - oldRotation);*/
-		float rotDeg = Input.GetAxis (panAxis) * 120 * Time.deltaTime;
+		float rotDeg = Input.GetAxis(panAxis) * 120 * Time.deltaTime;
         if (player.GetComponent<Player>().cameraLimit) rotDeg /= 3;
         Quaternion stickRotation = Quaternion.Euler (0, rotDeg, 0);
 		offsetFromPlayer = stickRotation * offsetFromPlayer;
