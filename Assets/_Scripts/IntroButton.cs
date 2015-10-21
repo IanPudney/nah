@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using UnityEngine.UI;
 public class IntroButton : MonoBehaviour {
 
 	// Use this for initialization
@@ -8,14 +8,13 @@ public class IntroButton : MonoBehaviour {
 	
 	}
 
-    public void LoadMain() {
-        Application.LoadLevel("Level2");
-    }
-
 	// Update is called once per frame
 	void Update () {
-        if (Mathf.Abs(Input.GetAxis("Start")) > .05f) {
-            Application.LoadLevel("Level2");
+        if (Mathf.Abs(Input.GetAxis("Start")) > .05f
+		    || Input.GetKeyDown (KeyCode.Return)) {
+			GameObject.Find("PressStartOrEnterShadow").GetComponent<Text>().text = "Loading...";
+			GameObject.Find("PressStartOrEnter").GetComponent<Text>().text = "Loading...";
+			Application.LoadLevel("Level2");
         }
 	}
 }
